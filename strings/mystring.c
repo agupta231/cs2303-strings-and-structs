@@ -17,7 +17,12 @@ char* mystrdup1(const char* src) {
   int length; // Length of the source string
   char* newstr; // Pointer to memory which will hold new string
 
-  length = strlen(src) + 1;  // Leave space for the terminator
+	// Orginial Version
+  // length = strlen(src) + 1;  // Leave space for the terminator
+	
+	// Use mystrlen1. As it is the exact same prototype, the only change that is
+	// required is to do a simple refactor
+	length = mystrlen1(src) + 1;  // Leave space for the terminator
   newstr = (char*) malloc(length); // Must cast!
 
   // If no memory was available, return null pointer immediately
