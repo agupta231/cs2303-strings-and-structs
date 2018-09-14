@@ -50,3 +50,14 @@ int mystrlen1(const char* s) {
 
 	return len;
 }
+
+int mystrlen2(const char* s) {
+	int len = 0;
+
+	while(*s != '\0') {
+		len++;
+		s++;
+	}
+
+	return len;
+}
