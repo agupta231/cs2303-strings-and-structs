@@ -33,6 +33,31 @@ char* mystrdup1(const char* src) {
   return newstr;
 }
 
+/** Duplicates a C-style string.
+ @param src Pointer to string to be copied
+ @return Pointer to freshly-allocated string containing a duplicate of src
+         or null if no memory is available
+*/
+char* mystrdup2(const char* src) {
+  int length; // Length of the source string
+  char* newstr; // Pointer to memory which will hold new string
+
+	// Orginial Version
+  // length = strlen(src) + 1;  // Leave space for the terminator
+	
+	// Use mystrlen1. As it is the exact same prototype, the only change that is
+	// required is to do a simple refactor
+	length = mystrlen2(src) + 1;  // Leave space for the terminator
+  newstr = (char*) malloc(length); // Must cast!
+
+  // If no memory was available, return null pointer immediately
+  if (newstr == 0) return (char *) 0;
+
+  // Otherwise, copy the string and return pointer to new string
+  strcpy(newstr, src);
+  return newstr;
+}
+
 /**
  * @brief Determine the length of a string by using subscripts
  *

@@ -56,6 +56,11 @@ int main()
 	printf("Duplicated string: \n");
 	printf("Pointer p2 = %p, contents = %s\n", p2, p2);
 
+	// Duplicate a string, using my function, then print
+	printf("\nBefore calling mystrdup2(), pointer a2 = %p, contents = %s\n", a2, a2);
+	p2 = mystrdup2(a2);
+	printf("Duplicated string: \n");
+	printf("Pointer p2 = %p, contents = %s\n", p2, p2);
 
 	// Be sure there is a terminator character in the last element of the array
 	a1[MAX_CHARS] = '\0';
