@@ -66,13 +66,19 @@ char* mystrdup2(const char* src) {
  * @return the length of the string defined as per s.
  */
 long int mystrlen1(const char* s) {
+	// Initialize Counter
 	long int i = 0;
+	// Intialize Length
 	long int len = 0;
+
+	// While the current char isn't the terminator
 	while(s[i] != '\0') {
+		// Increment length and counter
 		len++;
 		i++;
 	}
 
+	// Return length
 	return len;
 }
 
@@ -84,12 +90,43 @@ long int mystrlen1(const char* s) {
  * @return the length of the string defined as per s.
  */
 long int mystrlen2(const char* s) {
+	// Initialize length
 	long int len = 0;
 
+	// While the current char isn't the terminator
 	while(*s != '\0') {
+		// Increment length and pointer
 		len++;
 		s++;
 	}
 
+	// Return length
 	return len;
+}
+
+
+/**
+ * @brief Creates a copy of one string to another
+ *
+ * @param dest pointer to the char array where to copy the string to
+ * @param src pointer to the char array to copy
+ *
+ * @return pointer to dest
+ */
+char* mystrcpy(char* dest, char* src) {
+	// While the current char isn't a terminator
+	while(*src != '\0') {
+		// Set the current value of the dest as the current char in src
+		*dest = *src;
+
+		// Increment pointers
+		src++;
+		dest++;
+	}
+
+	// Copy over the terminator
+	*dest = *src;
+
+	// Return pointer to destination str
+	return dest;
 }
