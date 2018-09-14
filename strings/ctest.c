@@ -97,7 +97,19 @@ int main()
 	printf("Pointer z1 = %p, contents = %s\n", z1, z1);
 	printf("Pointer z2 = %p, contents = %s\n", z2, z2);
 
-	printf("\n\n=== END mystrcpy ====\n");
+	printf("=== END mystrcpy ====\n");
 
+
+	// Concatenate two character arrays, then print.
+	printf("\n\n=== START mystrcat ====\n");
+	// Be sure there is a terminator character in the last element of the array
+	a1[MAX_CHARS] = '\0';
+
+	strcpy(a1, p3); // Reset character array
+	strcat(a1, a2);
+	printf("Using mystrcat() to concatenate a2 to the end of a1\n");
+	printf("a1 = %s\n", a1);
+
+	printf("=== END mystrcat ====\n");
 	return 0;
 }

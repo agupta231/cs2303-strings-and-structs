@@ -90,6 +90,9 @@ long int mystrlen1(const char* s) {
  * @return the length of the string defined as per s.
  */
 long int mystrlen2(const char* s) {
+	// Create a back up pointer that will point to the beginning of the str
+	char* s_backup = s;
+
 	// Initialize length
 	long int len = 0;
 
@@ -99,6 +102,9 @@ long int mystrlen2(const char* s) {
 		len++;
 		s++;
 	}
+
+	// Return string to the beginning of the string.
+	s = s_backup;
 
 	// Return length
 	return len;
@@ -114,6 +120,10 @@ long int mystrlen2(const char* s) {
  * @return pointer to dest
  */
 char* mystrcpy(char* dest, char* src) {
+	// Create backup pointer that points to the first char in the string
+	char* dest_backup = dest;
+	char* src_backup = src;
+
 	// While the current char isn't a terminator
 	while(*src != '\0') {
 		// Set the current value of the dest as the current char in src
@@ -127,6 +137,36 @@ char* mystrcpy(char* dest, char* src) {
 	// Copy over the terminator
 	*dest = *src;
 
+	// reset pointers to the beginning of the array
+	dest = dest_backup;
+	src = src_backup;
+
 	// Return pointer to destination str
-	return dest;
+	return dest_backup;
+}
+
+char* mystrcat(char* dest, char* src) {
+	// Create "working pointers" - pointers that will traverse the string but
+	// won't mess with the pointer to the starting element in the char array
+	char* d = dest;
+	char* s = src;
+
+	// Traverse until the terminator in the dest
+	while(*d != '\0') {
+		d++;
+	}
+	
+	// Copy over all of src to dest
+	while(*s != '\0') {
+		*d = *s;
+		d++;
+		s++;
+	}
+
+	// Copy over terminator to dest
+	*d = *s;
+	
+	// Reset poisition of d
+	d = dest;
+	return d;
 }
