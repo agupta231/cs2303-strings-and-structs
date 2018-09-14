@@ -33,7 +33,7 @@ char* mystrdup1(const char* src) {
   return newstr;
 }
 
-/** Duplicates a C-style string.
+/** Duplicates a C-style string using mystrlen2
  @param src Pointer to string to be copied
  @return Pointer to freshly-allocated string containing a duplicate of src
          or null if no memory is available
@@ -76,6 +76,13 @@ long int mystrlen1(const char* s) {
 	return len;
 }
 
+/**
+ * @brief Determine the length of a string using pointer incrementation
+ *
+ * @param s pointer to char array
+ *
+ * @return the length of the string defined as per s.
+ */
 long int mystrlen2(const char* s) {
 	long int len = 0;
 
