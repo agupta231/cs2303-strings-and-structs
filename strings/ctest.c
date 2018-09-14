@@ -7,7 +7,7 @@
  * Program to demonstrate character arrays and
  * dynamically-allocated memory.
  * @author Mike Ciaraldi
- * Add your own @author line below.
+ * @author Ankur Gupta
  */
 
 const int MAX_CHARS = 20; // Maximum number of characters in array
@@ -79,6 +79,25 @@ int main()
 			copy_limit);
 	if (copy_limit > 0) strncat(a1, a3, copy_limit);
 	printf("a1 = %s\n", a1);
+
+	// Copy a string using mystrcopy
+	printf("\n\n=== START mystrcpy ====\n");
+
+	char *z1 = "Hello, World!"; // Create test string
+	char xs[15]; // Create unitilized array of correct size
+	char *z2 = xs; // Create a pointer to the array
+
+	printf("Before mystrcpy:\n");
+	printf("Pointer z1 = %p, contents = %s\n", z1, z1);
+	printf("Pointer z2 = %p, contents = %s\n", z2, z2);
+	
+	mystrcpy(z2, z1);
+
+	printf("\n\nAfter mystrcpy:\n");
+	printf("Pointer z1 = %p, contents = %s\n", z1, z1);
+	printf("Pointer z2 = %p, contents = %s\n", z2, z2);
+
+	printf("\n\n=== END mystrcpy ====\n");
 
 	return 0;
 }

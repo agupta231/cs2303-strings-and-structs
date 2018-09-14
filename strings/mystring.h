@@ -9,3 +9,5 @@ char* mystrdup2(const char* src);
 
 long int mystrlen1(const char* s);
 long int mystrlen2(const char* s);
+
+char* mystrcpy(char* dest, char* src);
