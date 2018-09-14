@@ -27,3 +27,21 @@ char* mystrdup1(const char* src) {
   strcpy(newstr, src);
   return newstr;
 }
+
+/**
+ * @brief Determine the length of a string by using subscripts
+ *
+ * @param s pointer to char array
+ *
+ * @return the length of the string defined as per s.
+ */
+int mystrlen1(const char* s) {
+	int i = 0;
+	int len = 0;
+	while(s[i] != '\0') {
+		len++;
+		i++;
+	}
+
+	return len;
+}
