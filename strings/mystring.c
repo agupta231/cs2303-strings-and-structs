@@ -65,9 +65,9 @@ char* mystrdup2(const char* src) {
  *
  * @return the length of the string defined as per s.
  */
-int mystrlen1(const char* s) {
-	int i = 0;
-	int len = 0;
+long int mystrlen1(const char* s) {
+	long int i = 0;
+	long int len = 0;
 	while(s[i] != '\0') {
 		len++;
 		i++;
@@ -76,8 +76,8 @@ int mystrlen1(const char* s) {
 	return len;
 }
 
-int mystrlen2(const char* s) {
-	int len = 0;
+long int mystrlen2(const char* s) {
+	long int len = 0;
 
 	while(*s != '\0') {
 		len++;

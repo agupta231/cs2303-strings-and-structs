@@ -7,5 +7,5 @@
 char* mystrdup1(const char* src);
 char* mystrdup2(const char* src);
 
-int mystrlen1(const char* s);
-int mystrlen2(const char* s);
+long int mystrlen1(const char* s);
+long int mystrlen2(const char* s);
