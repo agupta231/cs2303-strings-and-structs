@@ -106,7 +106,7 @@ int main()
 	a1[MAX_CHARS] = '\0';
 
 	strcpy(a1, p3); // Reset character array
-	strcat(a1, a2);
+	mystrcat(a1, a2);
 	printf("Using mystrcat() to concatenate a2 to the end of a1\n");
 	printf("a1 = %s\n", a1);
 
