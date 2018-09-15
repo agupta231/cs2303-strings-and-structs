@@ -4,6 +4,7 @@
 
 
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "mystruct.h"
 
@@ -26,4 +27,9 @@ struct Employee* makeEmployee(int birth, int start, const char *name) {
  *
  */
 void printEmployee(struct Employee *e) {
+	printf(
+			"Employee %s was born in %d and started in %d.\n",
+			e->name,
+			e->birth_year,
+			e->start_year);
 }
