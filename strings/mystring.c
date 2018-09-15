@@ -145,6 +145,15 @@ char* mystrcpy(char* dest, char* src) {
 	return dest_backup;
 }
 
+/**
+ * @brief Concatinate src onto dest. Not safe, and will continue for the entire
+ * length of the string.
+ *
+ * @param dest string to copy to
+ * @param src string to be copied
+ *
+ * @return Concatinated string
+ */
 char* mystrcat(char* dest, char* src) {
 	// Create "working pointers" - pointers that will traverse the string but
 	// won't mess with the pointer to the starting element in the char array
@@ -171,23 +180,39 @@ char* mystrcat(char* dest, char* src) {
 	return d;
 }
 
+/**
+ * @brief concatinate up to n characters from src to dest
+ *
+ * @param dest string to concatinate to
+ * @param src sting to be copied
+ * @param n number of characters to copy over
+ *
+ * @return concatinated string
+ */
 char* mystrncat(char* dest, char* src, size_t n) {
 	// Create "working pointers" - pointers that will traverse the string but
 	// won't mess with the pointer to the starting element in the char array
 	char* d = dest;
 	char* s = src;
 
+	// Start at the null terminator of d
 	while(*d != '\0') {
 		d++;
 	}
 
+	// Iterate through the src string for the desired size
 	for(int i = 0; i < n; i++) {
+		// Copy over the value
 		*d = *s;
+		
+		// Increment the pointers
 		d++;
 		s++;
 	}
 
+	// Insert a null terminator
 	d = '\0';
 
+	// Return the pointer to the start of the dest string
 	return dest;
 }

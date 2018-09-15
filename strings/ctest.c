@@ -116,6 +116,7 @@ int main()
 	// Start mystrncat
 	printf("\n\n=== START mystrncat ====\n");
 
+	// Initialize strings
 	char a_lenShorterThan[20] = "Hello";
 	char a_lenShorterThan_my[20] = "Hello";
 	char a_exactly[20] = "Hello";
@@ -124,6 +125,8 @@ int main()
 	char a_greater_my[20] = "Hello";
 	char b_6[6] = "World";
 
+	// Do a variable dump so that one can see the state of the whole system before
+	// it is modified
 	printf("Variable configuration before running mystrncat\n");
 	printf("str a_lenShorterThan: address = %p, value = %s\n", 
 			a_lenShorterThan, 
