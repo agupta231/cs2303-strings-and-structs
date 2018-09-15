@@ -12,5 +12,7 @@ int main(int atgc, char *argv[]) {
 	printEmployee(randomEmployee());
 	printEmployee(randomEmployee());
 
+	printEmployeeArray(randomArray(20), 20);
+
 	return 0;
 }

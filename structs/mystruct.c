@@ -76,3 +76,19 @@ char* randomName(int length) {
 struct Employee* randomEmployee() {
 	return makeEmployee(randomAge(), randomAge(), randomName(nameLength));
 }
+
+struct Employee** randomArray(int count) {
+	struct Employee** e = (Employee**) malloc(sizeof(struct Employee) * count);
+
+	for(int i = 0; i < count ; i++) {
+		e[i] = randomEmployee();
+	}
+
+	return e;
+}
+
+void printEmployeeArray(struct Employee** arr, int count) {
+	for(int i = 0; i < count; i++) {
+		printEmployee(arr[i]);
+	}
+}
