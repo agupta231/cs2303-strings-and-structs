@@ -185,6 +185,40 @@ int main()
 	printf("=== End mystrncat ====\n");
 
 	printf("\n\n=== START mystrncpy ====\n");
+
+	char c_shorterThan[10] = "Hello";
+	char c_shorterThan_my[10] = "Hello";
+	char c_equalTo[10] = "Hello";
+	char c_equalTo_my[10] = "Hello";
+	char c_greaterThan[10] = "Hello";
+	char c_greaterThan_my[10] = "Hello";
+
+	printf("Variable dump:\n");
+	printf("c_shorterThan - Address: %p Value: %s\n", c_shorterThan, c_shorterThan);
+	printf("c_shorterThan_my - Address: %p Value: %s\n", c_shorterThan_my, c_shorterThan_my);
+	printf("c_equalTo - Address: %p Value: %s\n", c_equalTo, c_equalTo);
+	printf("c_equalTo_my - Address: %p Value: %s\n", c_equalTo_my, c_equalTo_my);
+	printf("c_greaterThan - Address: %p Value: %s\n", c_greaterThan, c_greaterThan);
+	printf("c_greaterThan_my - Address: %p Value: %s\n", c_greaterThan_my, c_greaterThan_my);
+
+	printf("Copying string with a length shorter than n\n");
+	strncpy(c_shorterThan, b_6, 7);
+	mystrncpy(c_shorterThan_my, b_6, 7);
+	printf("c_shorterThan - Address: %p Value: %s\n", c_shorterThan, c_shorterThan);
+	printf("c_shorterThan_my - Address: %p Value: %s\n", c_shorterThan_my, c_shorterThan_my);
+
+	printf("Copying string with a length the same as n\n");
+	strncpy(c_equalTo, b_6, 6);
+	mystrncpy(c_equalTo_my, b_6, 6);
+	printf("c_equalTo - Address: %p Value: %s\n", c_equalTo, c_equalTo);
+	printf("c_equalTo_my - Address: %p Value: %s\n", c_equalTo_my, c_equalTo_my);
+
+	printf("Copying string with a length greater than n\n");
+	strncpy(c_greaterThan, b_6, 2);
+	mystrncpy(c_greaterThan_my, b_6, 2);
+	printf("c_greaterThan - Address: %p Value: %s\n", c_greaterThan, c_greaterThan);
+	printf("c_greaterThan_my - Address: %p Value: %s\n", c_greaterThan_my, c_greaterThan_my);
+
 	printf("=== END mystrncpy ====\n");
 	return 0;
 }
