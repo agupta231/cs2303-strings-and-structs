@@ -4,6 +4,7 @@
 
 
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include "mystruct.h"
 
@@ -14,11 +15,21 @@
  * @return Pointer to Employee struct, newly allocated from the heap.
  */
 struct Employee* makeEmployee(int birth, int start, const char *name) {
-	return NULL; // Replace this with a pointer to the allocated struct
+	struct Employee* e = (struct Employee*) malloc(sizeof(struct Employee));
+	e->birth_year = birth;
+	e->start_year = start;
+	strcpy(e->name, name);
+
+	return e;
 }
 
 /**
  *
  */
 void printEmployee(struct Employee *e) {
+	printf(
+			"Employee %s was born in %d and started in %d.\n",
+			e->name,
+			e->birth_year,
+			e->start_year);
 }
