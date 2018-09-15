@@ -23,5 +23,8 @@ int main(int atgc, char *argv[]) {
 	printEmployeeArray(sCopy, 20);
 
 	deleteEmployeesArray(sCopy, 20);
+
+	printf("test\n");
+	printEmployeeArray(sCopy, 20);
 	return 0;
 }
