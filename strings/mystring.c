@@ -250,3 +250,20 @@ char* mystrncpy(char* dest, const char* src, size_t n) {
 	return dest;
 }
 
+char* mystrndup(const char* str, size_t n) {
+	char* newstr = (char*) malloc(n + 1); // Must cast!
+
+	// If no memory was available, return null pointer immediately
+	if (newstr == 0) return (char *) 0;
+
+	for(int i = 0; i < n; i++) {
+		newstr[i] = str[i];
+
+		if(str[i] == '\0') {
+			return newstr;
+		}
+	}
+
+	newstr[n] = '\0';
+	return newstr;
+}

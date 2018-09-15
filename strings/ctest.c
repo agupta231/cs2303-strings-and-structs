@@ -220,5 +220,30 @@ int main()
 	printf("c_greaterThan_my - Address: %p Value: %s\n", c_greaterThan_my, c_greaterThan_my);
 
 	printf("=== END mystrncpy ====\n");
+
+
+	printf("\n\n=== START mystrndup ====\n");
+
+	char d[7] = "Hello";
+
+	printf("Copying 'Hello' to 2 charaters\n");
+	char* d_1 = strndup(d, 2);
+	char* d_2 = mystrndup(d, 2);
+	printf("Standard Func output: %s\n", d_1);
+	printf("Custom Func output: %s\n", d_2);
+
+	printf("Copying 'Hello' to 6 charaters\n");
+	d_1 = strndup(d, 6);
+	d_2 = mystrndup(d, 6);
+	printf("Standard Func output: %s\n", d_1);
+	printf("Custom Func output: %s\n", d_2);
+
+	printf("Copying 'Hello' to 10 charaters\n");
+	d_1 = strndup(d, 10);
+	d_2 = mystrndup(d, 10);
+	printf("Standard Func output: %s\n", d_1);
+	printf("Custom Func output: %s\n", d_2);
+
+	printf("=== END mystrdup ====\n");
 	return 0;
 }
