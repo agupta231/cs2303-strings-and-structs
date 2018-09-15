@@ -14,7 +14,12 @@
  * @return Pointer to Employee struct, newly allocated from the heap.
  */
 struct Employee* makeEmployee(int birth, int start, const char *name) {
-	return NULL; // Replace this with a pointer to the allocated struct
+	struct Employee* e = (struct Employee*) malloc(sizeof(struct Employee));
+	e->birth_year = birth;
+	e->start_year = start;
+	strcpy(e->name, name);
+
+	return e;
 }
 
 /**
