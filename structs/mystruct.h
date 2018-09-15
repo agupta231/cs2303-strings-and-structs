@@ -18,3 +18,5 @@ typedef struct Employee {
 struct Employee *makeEmployee(int birth, int start, const char* name);
 void printEmployee(struct Employee *e);
 struct Employee* randomEmployee();
+struct Employee** randomArray(int count);
+void printEmployeeArray(struct Employee** arr, int count);

@@ -76,3 +76,33 @@ char* randomName(int length) {
 struct Employee* randomEmployee() {
 	return makeEmployee(randomAge(), randomAge(), randomName(nameLength));
 }
+
+/**
+ * @brief Create a random array of employees
+ *
+ * @param count the desired length of the array
+ *
+ * @return a pointer to an array of pointers to an Employee
+ */
+struct Employee** randomArray(int count) {
+	struct Employee** e = (Employee**) malloc(sizeof(struct Employee) * count);
+
+	for(int i = 0; i < count ; i++) {
+		e[i] = randomEmployee();
+	}
+
+	return e;
+}
+
+/**
+ * @brief be able to print out an array of pointers to employees in a human
+ * readable format
+ *
+ * @param arr the array of pointers to Employees
+ * @param count the length of the array
+ */
+void printEmployeeArray(struct Employee** arr, int count) {
+	for(int i = 0; i < count; i++) {
+		printEmployee(arr[i]);
+	}
+}
