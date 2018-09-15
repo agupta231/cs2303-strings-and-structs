@@ -26,7 +26,9 @@ struct Employee* makeEmployee(int birth, int start, const char *name) {
 }
 
 /**
+ * @brief Print an Employee struct in a human readable fashion
  *
+ * @param pointer to to the Employee Struct
  */
 void printEmployee(struct Employee *e) {
 	printf(
@@ -36,11 +38,23 @@ void printEmployee(struct Employee *e) {
 			e->start_year);
 }
 
+/**
+ * @brief Generate a random age 
+ *
+ * @return an int which is in the range [1900, 2018]
+ */
 int randomAge() {
 	int offset = rand() % 119;
 	return offset + 1900;
 }
 
+/**
+ * @brief Generate a random string of size 'length'
+ *
+ * @param length how long the string should be
+ *
+ * @return A random string of size 'length'
+ */
 char* randomName(int length) {
 	char* name = (char*) malloc(sizeof(char) * (length + 1));
 
@@ -53,6 +67,12 @@ char* randomName(int length) {
 	return name;
 }
 
+/**
+ * @brief generate a random employee
+ *
+ * @return a pointer to an employee struct with start and birthdays in the range
+ * [1900, 2018] and names that are of length 'nameLength', as defined above
+ */
 struct Employee* randomEmployee() {
 	return makeEmployee(randomAge(), randomAge(), randomName(nameLength));
 }
