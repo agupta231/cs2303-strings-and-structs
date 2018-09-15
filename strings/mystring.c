@@ -217,21 +217,36 @@ char* mystrncat(char* dest, char* src, size_t n) {
 	return dest;
 }
 
+/**
+ * @brief copy a string to another address upto n characters
+ *
+ * @param dest where the new address of the string should be
+ * @param src where to copy the string from
+ * @param n how many characters should be copied
+ *
+ * @return pointer to dest
+ */
 char* mystrncpy(char* dest, const char* src, size_t n) {
+	// create working pointers
 	char* d = dest;
 	const char* s = src;
 
+	// Iterate the number of characters
 	for(int i = 0; i < n; i++) {
+		// Copy the value of the src to the dest
 		*d = *s;
 
+		// In case the source is smaller than the number of characters
 		if(*s == '\0') {
 			break;
 		}
 
+		// Increment pointers
 		d++;
 		s++;
 	}
 
+	// Return pointer to new address in memeory
 	return dest;
 }
 
