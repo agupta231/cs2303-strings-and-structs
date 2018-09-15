@@ -91,7 +91,7 @@ long int mystrlen1(const char* s) {
  */
 long int mystrlen2(const char* s) {
 	// Create a back up pointer that will point to the beginning of the str
-	char* s_backup = s;
+	const char* s_backup = s;
 
 	// Initialize length
 	long int len = 0;
@@ -169,4 +169,25 @@ char* mystrcat(char* dest, char* src) {
 	// Reset poisition of d
 	d = dest;
 	return d;
+}
+
+char* mystrncat(char* dest, char* src, size_t n) {
+	// Create "working pointers" - pointers that will traverse the string but
+	// won't mess with the pointer to the starting element in the char array
+	char* d = dest;
+	char* s = src;
+
+	while(*d != '\0') {
+		d++;
+	}
+
+	for(int i = 0; i < n; i++) {
+		d = s;
+		d++;
+		s++;
+	}
+
+	d = '\0';
+
+	return dest;
 }
