@@ -97,7 +97,91 @@ int main()
 	printf("Pointer z1 = %p, contents = %s\n", z1, z1);
 	printf("Pointer z2 = %p, contents = %s\n", z2, z2);
 
-	printf("\n\n=== END mystrcpy ====\n");
+	printf("=== END mystrcpy ====\n");
 
+
+	// Concatenate two character arrays, then print.
+	printf("\n\n=== START mystrcat ====\n");
+	// Be sure there is a terminator character in the last element of the array
+	a1[MAX_CHARS] = '\0';
+
+	strcpy(a1, p3); // Reset character array
+	mystrcat(a1, a2);
+	printf("Using mystrcat() to concatenate a2 to the end of a1\n");
+	printf("a1 = %s\n", a1);
+
+	printf("=== END mystrcat ====\n");
+
+
+	// Start mystrncat
+	printf("\n\n=== START mystrncat ====\n");
+
+	// Initialize strings
+	char a_lenShorterThan[20] = "Hello";
+	char a_lenShorterThan_my[20] = "Hello";
+	char a_exactly[20] = "Hello";
+	char a_exactly_my[20] = "Hello";
+	char a_greater[20] = "Hello";
+	char a_greater_my[20] = "Hello";
+	char b_6[6] = "World";
+
+	// Do a variable dump so that one can see the state of the whole system before
+	// it is modified
+	printf("Variable configuration before running mystrncat\n");
+	printf("str a_lenShorterThan: address = %p, value = %s\n", 
+			a_lenShorterThan, 
+			a_lenShorterThan);
+	printf("str a_lenShorterThan_my: address = %p, value = %s\n", 
+			a_lenShorterThan_my, 
+			a_lenShorterThan_my);
+	printf("str a_exactly: address = %p, value = %s\n", 
+			a_exactly, 
+			a_exactly);
+	printf("str a_exactly_my: address = %p, value = %s\n", 
+			a_exactly_my, 
+			a_exactly_my);
+	printf("str a_greater: address = %p, value = %s\n", 
+			a_greater, 
+			a_greater);
+	printf("str a_greater_my: address = %p, value = %s\n", 
+			a_greater_my, 
+			a_greater_my);
+	printf("str b_6: address = %p, value = %s\n", b_6, b_6);
+	
+
+	printf("Concat a string when the length of the string is shorter than n\n");
+	strncat(a_lenShorterThan, b_6, 8);
+	mystrncat(a_lenShorterThan_my, b_6, 8);
+
+	printf("str a_lenShorterThan: address = %p, value = %s\n", 
+			a_lenShorterThan, 
+			a_lenShorterThan);
+	printf("str a_lenShorterThan_my: address = %p, value = %s\n", 
+			a_lenShorterThan_my, 
+			a_lenShorterThan_my);
+
+	printf("Concat a string when the lenght of the string is exaclty equal to n\n");
+	strncat(a_exactly, b_6, 5);
+	mystrncat(a_exactly_my, b_6, 5);
+
+	printf("str a_exactly: address = %p, value = %s\n", 
+			a_exactly, 
+			a_exactly);
+	printf("str a_exactly_my: address = %p, value = %s\n", 
+			a_exactly_my, 
+			a_exactly_my);
+
+	printf("Concat a string when the length of the string is greater than n\n");
+	strncat(a_greater, b_6, 2);
+	mystrncat(a_greater_my, b_6, 2);
+
+	printf("str a_greater: address = %p, value = %s\n", 
+			a_greater, 
+			a_greater);
+	printf("str a_greater_my: address = %p, value = %s\n", 
+			a_greater_my, 
+			a_greater_my);
+
+	printf("=== End mystrncat ====\n");
 	return 0;
 }

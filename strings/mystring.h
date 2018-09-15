@@ -11,3 +11,5 @@ long int mystrlen1(const char* s);
 long int mystrlen2(const char* s);
 
 char* mystrcpy(char* dest, char* src);
+char* mystrcat(char* dest, char* src);
+char* mystrncat(char* dest, char* src, size_t n);
