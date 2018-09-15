@@ -125,3 +125,11 @@ struct Employee** shallowCopy(struct Employee** old, int count) {
 
 	return new;
 }
+
+void deleteEmployeesArray(struct Employee** arr, int count) {
+	for(int i = 0; i < count; i++) {
+		if(arr[i] != NULL) {
+			free(arr[i]);
+		}
+	}
+}
