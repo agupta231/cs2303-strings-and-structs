@@ -106,3 +106,13 @@ void printEmployeeArray(struct Employee** arr, int count) {
 		printEmployee(arr[i]);
 	}
 }
+
+struct Employee** shallowCopy(struct Employee** old, int count) {
+	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
+
+	for(int i = 0; i < count; i++) {
+		new[i] = old[i];
+	}
+
+	return new;
+}

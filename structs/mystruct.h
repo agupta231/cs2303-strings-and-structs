@@ -20,3 +20,4 @@ void printEmployee(struct Employee *e);
 struct Employee* randomEmployee();
 struct Employee** randomArray(int count);
 void printEmployeeArray(struct Employee** arr, int count);
+struct Employee** shallowCopy(struct Employee** old, int count);

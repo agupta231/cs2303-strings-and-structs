@@ -12,7 +12,15 @@ int main(int atgc, char *argv[]) {
 	printEmployee(randomEmployee());
 	printEmployee(randomEmployee());
 
-	printEmployeeArray(randomArray(20), 20);
+	struct Employee** eBase = randomArray(20);
+	
+	printf("Rando array:\n");
+	printEmployeeArray(eBase, 20);
+
+	struct Employee** sCopy = shallowCopy(eBase, 20);
+
+	printf("Shallow Copied array:\n");
+	printEmployeeArray(sCopy, 20);
 
 	return 0;
 }
