@@ -8,6 +8,9 @@ int main(int atgc, char *argv[]) {
 
 	printEmployee(mike);
 	printEmployee(ankur);
+	printEmployee(randomEmployee());
+	printEmployee(randomEmployee());
+	printEmployee(randomEmployee());
 
 	return 0;
 }

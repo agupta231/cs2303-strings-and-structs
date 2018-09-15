@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include "mystruct.h"
 
+int nameLength = 10;
+
 /** Allocates an Employee struct and fills in its fields
  * @param birth Year the emploee was born.
  * @param start Year the employee started with the company.
@@ -32,4 +34,25 @@ void printEmployee(struct Employee *e) {
 			e->name,
 			e->birth_year,
 			e->start_year);
+}
+
+int randomAge() {
+	int offset = rand() % 119;
+	return offset + 1900;
+}
+
+char* randomName(int length) {
+	char* name = (char*) malloc(sizeof(char) * (length + 1));
+
+	for(int i = 0; i < length; i++) {
+		name[i] = 'A' + (rand() % 26);
+	}
+
+	name[length] = '\0';
+
+	return name;
+}
+
+struct Employee* randomEmployee() {
+	return makeEmployee(randomAge(), randomAge(), randomName(nameLength));
 }

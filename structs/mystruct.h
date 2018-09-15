@@ -17,3 +17,4 @@ typedef struct Employee {
 // Function prototype(s):
 struct Employee *makeEmployee(int birth, int start, const char* name);
 void printEmployee(struct Employee *e);
+struct Employee* randomEmployee();
