@@ -126,6 +126,12 @@ struct Employee** shallowCopy(struct Employee** old, int count) {
 	return new;
 }
 
+/**
+ * @brief delete the referenced structs in an array of Employees. 
+ *
+ * @param arr array of pointers referencing the structs
+ * @param count the length of the array
+ */
 void deleteEmployeesArray(struct Employee** arr, int count) {
 	for(int i = 0; i < count; i++) {
 		if(arr[i] != NULL) {
