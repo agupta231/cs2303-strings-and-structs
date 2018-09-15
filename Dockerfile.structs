@@ -10,5 +10,4 @@ RUN apt-get update && \
 		rm -rf /var/lib/apt/lists*
 
 WORKDIR /program
-CMD gcc -Wall life.c && \
-	  ./a.out
+CMD cd structs && make && ./structest
