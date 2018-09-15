@@ -183,5 +183,8 @@ int main()
 			a_greater_my);
 
 	printf("=== End mystrncat ====\n");
+
+	printf("\n\n=== START mystrncpy ====\n");
+	printf("=== END mystrncpy ====\n");
 	return 0;
 }

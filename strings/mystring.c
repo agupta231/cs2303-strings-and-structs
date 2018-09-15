@@ -216,3 +216,22 @@ char* mystrncat(char* dest, char* src, size_t n) {
 	// Return the pointer to the start of the dest string
 	return dest;
 }
+
+char* mystrncpy(char* dest, const char* src, size_t n) {
+	char* d = dest;
+	const char* s = src;
+
+	for(int i = 0; i < n; i++) {
+		*d = *s;
+
+		if(*s == '\0') {
+			break;
+		}
+
+		d++;
+		s++;
+	}
+
+	return dest;
+}
+
