@@ -106,3 +106,22 @@ void printEmployeeArray(struct Employee** arr, int count) {
 		printEmployee(arr[i]);
 	}
 }
+
+/**
+ * @brief create a "shallow copy" of an arry of Employees. The pointers will be
+ * copied over, but the actual employee object will remain untouched.
+ *
+ * @param old the existing array to copy over
+ * @param count the length of the array
+ *
+ * @return a pointer to a new array of Employee pointers
+ */
+struct Employee** shallowCopy(struct Employee** old, int count) {
+	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
+
+	for(int i = 0; i < count; i++) {
+		new[i] = old[i];
+	}
+
+	return new;
+}
