@@ -182,7 +182,7 @@ char* mystrncat(char* dest, char* src, size_t n) {
 	}
 
 	for(int i = 0; i < n; i++) {
-		d = s;
+		*d = *s;
 		d++;
 		s++;
 	}
