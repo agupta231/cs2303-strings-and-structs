@@ -22,3 +22,4 @@ struct Employee** randomArray(int count);
 void printEmployeeArray(struct Employee** arr, int count);
 struct Employee** shallowCopy(struct Employee** old, int count);
 void deleteEmployeesArray(struct Employee** arr, int count);
+struct Employee** deepCopy(struct Employee** old, int count);

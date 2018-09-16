@@ -32,10 +32,11 @@ struct Employee* makeEmployee(int birth, int start, const char *name) {
  */
 void printEmployee(struct Employee *e) {
 	printf(
-			"Employee %s was born in %d and started in %d.\n",
+			"Employee %s was born in %d and started in %d. N Add: %p\n",
 			e->name,
 			e->birth_year,
-			e->start_year);
+			e->start_year,
+			e->name);
 }
 
 /**
@@ -103,6 +104,7 @@ struct Employee** randomArray(int count) {
  */
 void printEmployeeArray(struct Employee** arr, int count) {
 	for(int i = 0; i < count; i++) {
+		printf("Pointer Addr: %p ", arr + i);
 		printEmployee(arr[i]);
 	}
 }
@@ -138,4 +140,24 @@ void deleteEmployeesArray(struct Employee** arr, int count) {
 			free(arr[i]);
 		}
 	}
+}
+
+struct Employee* copyEmployee(struct Employee* src) {
+	struct Employee* e = (struct Employee*) malloc(sizeof(struct Employee));
+
+	e->birth_year = src->birth_year;
+	e->start_year = src->start_year;
+	strcpy(e->name, src->name);
+
+	return e;
+}
+
+struct Employee** deepCopy(struct Employee** old, int count) {
+	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
+
+	for(int i = 0; i < count; i++) {
+		new[i] = copyEmployee(old[i]);
+	}
+	
+	return new;
 }
