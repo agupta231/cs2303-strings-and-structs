@@ -32,10 +32,11 @@ struct Employee* makeEmployee(int birth, int start, const char *name) {
  */
 void printEmployee(struct Employee *e) {
 	printf(
-			"Employee %s was born in %d and started in %d. N Add: %p\n",
+			"Employee %s was born in %d and started in %d. Struct Addr: %p Name Addr: %p\n",
 			e->name,
 			e->birth_year,
 			e->start_year,
+			e,
 			e->name);
 }
 
@@ -104,7 +105,7 @@ struct Employee** randomArray(int count) {
  */
 void printEmployeeArray(struct Employee** arr, int count) {
 	for(int i = 0; i < count; i++) {
-		printf("Pointer Addr: %p ", arr + i);
+		printf("Pointer Addr: %p - ", arr + i);
 		printEmployee(arr[i]);
 	}
 }
@@ -142,6 +143,13 @@ void deleteEmployeesArray(struct Employee** arr, int count) {
 	}
 }
 
+/**
+ * @brief Deep copy an employee
+ *
+ * @param src employee to deep copy
+ *
+ * @return a new pointer pointing to the new employee
+ */
 struct Employee* copyEmployee(struct Employee* src) {
 	struct Employee* e = (struct Employee*) malloc(sizeof(struct Employee));
 
@@ -152,6 +160,14 @@ struct Employee* copyEmployee(struct Employee* src) {
 	return e;
 }
 
+/**
+ * @brief Deep copy a list of employees
+ *
+ * @param old list of employees to deep copy
+ * @param count length of list
+ *
+ * @return pointer to new list of pointers pointing to employees
+ */
 struct Employee** deepCopy(struct Employee** old, int count) {
 	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
 
