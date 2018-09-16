@@ -32,11 +32,10 @@ struct Employee* makeEmployee(int birth, int start, const char *name) {
  */
 void printEmployee(struct Employee *e) {
 	printf(
-			"Employee %s was born in %d and started in %d. E Add: %p N Add: %p\n",
+			"Employee %s was born in %d and started in %d. N Add: %p\n",
 			e->name,
 			e->birth_year,
 			e->start_year,
-			e,
 			e->name);
 }
 
@@ -105,6 +104,7 @@ struct Employee** randomArray(int count) {
  */
 void printEmployeeArray(struct Employee** arr, int count) {
 	for(int i = 0; i < count; i++) {
+		printf("Pointer Addr: %p ", arr + i);
 		printEmployee(arr[i]);
 	}
 }
@@ -122,7 +122,7 @@ struct Employee** shallowCopy(struct Employee** old, int count) {
 	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
 
 	for(int i = 0; i < count; i++) {
-		*new[i] = *old[i];
+		new[i] = old[i];
 	}
 
 	return new;
