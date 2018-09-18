@@ -2,12 +2,12 @@
  * @author Mike Ciaraldi
 */
 
-
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "mystruct.h"
 
+// Create a variable to store the length of the name
 int nameLength = 10;
 
 /** Allocates an Employee struct and fills in its fields
@@ -17,7 +17,10 @@ int nameLength = 10;
  * @return Pointer to Employee struct, newly allocated from the heap.
  */
 struct Employee* makeEmployee(int birth, int start, const char *name) {
+	// Allocate space for the Employee
 	struct Employee* e = (struct Employee*) malloc(sizeof(struct Employee));
+
+	// Set the struct variables 
 	e->birth_year = birth;
 	e->start_year = start;
 	strcpy(e->name, name);
@@ -31,6 +34,7 @@ struct Employee* makeEmployee(int birth, int start, const char *name) {
  * @param pointer to to the Employee Struct
  */
 void printEmployee(struct Employee *e) {
+	// Print out the struct data in a human readable format
 	printf(
 			"Employee %s was born in %d and started in %d. Struct Addr: %p Name Addr: %p\n",
 			e->name,
@@ -58,12 +62,15 @@ int randomAge() {
  * @return A random string of size 'length'
  */
 char* randomName(int length) {
+	// Allocate space for name strin
 	char* name = (char*) malloc(sizeof(char) * (length + 1));
 
+	// Randomly fill in the inputs
 	for(int i = 0; i < length; i++) {
 		name[i] = 'A' + (rand() % 26);
 	}
 
+	// Add a null terminator to the end of string
 	name[length] = '\0';
 
 	return name;
@@ -87,8 +94,10 @@ struct Employee* randomEmployee() {
  * @return a pointer to an array of pointers to an Employee
  */
 struct Employee** randomArray(int count) {
+	// Allocate space for the employee
 	struct Employee** e = (Employee**) malloc(sizeof(struct Employee) * count);
 
+	// Fill up each slot with a random employee
 	for(int i = 0; i < count ; i++) {
 		e[i] = randomEmployee();
 	}
@@ -104,6 +113,8 @@ struct Employee** randomArray(int count) {
  * @param count the length of the array
  */
 void printEmployeeArray(struct Employee** arr, int count) {
+	// Print out the pointers as well, which will prove the accuracy of the deep
+	// copy
 	for(int i = 0; i < count; i++) {
 		printf("Pointer Addr: %p - ", arr + i);
 		printEmployee(arr[i]);
@@ -120,8 +131,10 @@ void printEmployeeArray(struct Employee** arr, int count) {
  * @return a pointer to a new array of Employee pointers
  */
 struct Employee** shallowCopy(struct Employee** old, int count) {
+	// Allocate the space for the employee
 	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
 
+	// Tranfser the locations of the pointer
 	for(int i = 0; i < count; i++) {
 		new[i] = old[i];
 	}
@@ -136,6 +149,7 @@ struct Employee** shallowCopy(struct Employee** old, int count) {
  * @param count the length of the array
  */
 void deleteEmployeesArray(struct Employee** arr, int count) {
+	// Iterate through the array and free all of the pointers
 	for(int i = 0; i < count; i++) {
 		if(arr[i] != NULL) {
 			free(arr[i]);
@@ -151,8 +165,10 @@ void deleteEmployeesArray(struct Employee** arr, int count) {
  * @return a new pointer pointing to the new employee
  */
 struct Employee* copyEmployee(struct Employee* src) {
+	// Allocate the space for the employee
 	struct Employee* e = (struct Employee*) malloc(sizeof(struct Employee));
 
+	// Transfer data of structs by value
 	e->birth_year = src->birth_year;
 	e->start_year = src->start_year;
 	strcpy(e->name, src->name);
@@ -169,8 +185,10 @@ struct Employee* copyEmployee(struct Employee* src) {
  * @return pointer to new list of pointers pointing to employees
  */
 struct Employee** deepCopy(struct Employee** old, int count) {
+	// Allocate the space for the employee
 	struct Employee** new = (Employee**) malloc(sizeof(struct Employee) * count);
 
+	// Iterate through the array and copy over the structs
 	for(int i = 0; i < count; i++) {
 		new[i] = copyEmployee(old[i]);
 	}
