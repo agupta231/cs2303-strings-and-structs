@@ -1,2 +1,3 @@
-# cs2303-strings-and-structs
- Project 3 for Systems Programming
+# CS2303 - Project 3
+
+See individual folders for the respective readmes
