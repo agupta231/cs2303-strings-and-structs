@@ -250,20 +250,34 @@ char* mystrncpy(char* dest, const char* src, size_t n) {
 	return dest;
 }
 
+/**
+ * @brief Duplicate a string up tp n charactesr
+ *
+ * @param str string to duplicate
+ * @param n number characters to duplicate up to
+ *
+ * @return a pointer to the new string
+ */
 char* mystrndup(const char* str, size_t n) {
+	// Create a char buffer of n + 1. This way, there will always be space for a
+	// null terminator at the end
 	char* newstr = (char*) malloc(n + 1); // Must cast!
 
 	// If no memory was available, return null pointer immediately
 	if (newstr == 0) return (char *) 0;
 
+	// Iterate through the characters
 	for(int i = 0; i < n; i++) {
 		newstr[i] = str[i];
 
+		// If src has a null terminator, the function will stop copying and return
+		// right there
 		if(str[i] == '\0') {
 			return newstr;
 		}
 	}
 
+	// Attach a null terminaotor to the end
 	newstr[n] = '\0';
 	return newstr;
 }

@@ -42,6 +42,8 @@ int main()
 	//   unsigned long, so we need to print it with %ld instead of just %d.
 	printf("For string /%s/, strlen() returns %ld\n", p1, strlen(p1));
 	printf("For string /%s/, mystrlen1() returns %ld\n", p1, mystrlen1(p1));
+
+	// Run my strlen2
 	printf("For string /%s/, mystrlen2() returns %ld\n", p1, mystrlen2(p1));
 
 	// Duplicate a string, using strdup(), then print
@@ -184,8 +186,10 @@ int main()
 
 	printf("=== End mystrncat ====\n");
 
-	printf("\n\n=== START mystrncpy ====\n");
+	printf("\n\n=== START mystrncpy ====\n"); // Test mystrncpy
 
+
+	// Intialize test variables
 	char c_shorterThan[10] = "Hello";
 	char c_shorterThan_my[10] = "Hello";
 	char c_equalTo[10] = "Hello";
@@ -193,6 +197,7 @@ int main()
 	char c_greaterThan[10] = "Hello";
 	char c_greaterThan_my[10] = "Hello";
 
+	// Print out the values of the variables so that the user knows what they are
 	printf("Variable dump:\n");
 	printf("c_shorterThan - Address: %p Value: %s\n", c_shorterThan, c_shorterThan);
 	printf("c_shorterThan_my - Address: %p Value: %s\n", c_shorterThan_my, c_shorterThan_my);
@@ -201,6 +206,7 @@ int main()
 	printf("c_greaterThan - Address: %p Value: %s\n", c_greaterThan, c_greaterThan);
 	printf("c_greaterThan_my - Address: %p Value: %s\n", c_greaterThan_my, c_greaterThan_my);
 
+	// Test all of the corner cases
 	printf("Copying string with a length shorter than n\n");
 	strncpy(c_shorterThan, b_6, 7);
 	mystrncpy(c_shorterThan_my, b_6, 7);
@@ -222,10 +228,12 @@ int main()
 	printf("=== END mystrncpy ====\n");
 
 
-	printf("\n\n=== START mystrndup ====\n");
+	printf("\n\n=== START mystrndup ====\n"); // Test mystrndup
 
+	// Intialize the value to copy
 	char d[7] = "Hello";
 
+	// Test out all of the corner cases
 	printf("Copying 'Hello' to 2 charaters\n");
 	char* d_1 = strndup(d, 2);
 	char* d_2 = mystrndup(d, 2);
